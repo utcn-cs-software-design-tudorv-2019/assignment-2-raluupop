@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace ="views :: head"></head>
+<body class="container">
+
+    <h1 th:text="${title}">Add</h1>
+
+  <nav th:replace ="views :: navigation"> </nav> 
+
+    <form method="post">
+
+        <div th:each="student : ${students}" class="checkbox">
+            <input type="checkbox" name="idstudents" th:value="${student.idstudent}" th:id="${student.idstudent}"/>
+            <label th:for="${student.idstudent}" th:text="${student.firstname}"></label>
+
+        </div>
+         
+        <input type="submit" value="Remove Student" />
+    </form>
+</body>
+</html>

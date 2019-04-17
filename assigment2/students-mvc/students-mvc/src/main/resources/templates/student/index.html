@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="views :: head"></head>
+<body class="container">
+    <h1 th:text="${title}">Page Title</h1>
+
+    <nav th:replace ="views :: navigation"> </nav>
+    <p th:unless="${students} and ${students.size()} ">no students :( </p>
+  
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.firstname}"></td>
+        <td th:text="${student.course}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
