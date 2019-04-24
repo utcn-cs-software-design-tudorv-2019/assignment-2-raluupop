@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace ="views :: head"></head>
+<body class="container">
+  <h1 th:text="${title}">View</h1>
+
+    <nav th:replace="views :: navigation"></nav>
+    <ul> 
+        <li th:each="student : ${students}" th:text="${student.name}"></li>
+    </ul>
+    <p th:unless="${students.size()}"><i>No students yet</i></p>
+    <p><a th:href="'/enrollment/add-item/' + ${enrollmentId}"?Ass Students</a></p> 
+   </body>
+</html>

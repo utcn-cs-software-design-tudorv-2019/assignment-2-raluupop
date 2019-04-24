@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="views :: head"></head>
+<body class="container">
+    <h1 th:text="${title}">Page Title</h1>
+
+    <nav th:replace ="views :: navigation"> </nav>
+   
+
+<ul>
+    <li th:each="enorllment : ${enorllments}">
+        <a th:href="'enorllment/view/' + ${enorllment.id}" th:text="${enorllment.name}"></a>
+
+    </li>
+</ul>
+<p><a href="/enorllment/add">Add enorllment</a></p>
+
+
+</body>
+</html>

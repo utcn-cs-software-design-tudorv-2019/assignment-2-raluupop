@@ -4,19 +4,38 @@
 <body class="container">
     <h1 th:text="${title}">Add</h1>
   <nav th:replace ="views :: navigation"> </nav> 
-    <form method="post" style="max-width: 600px;">
+    <form method="post" style="max-width: 600px;" th:object="${student}">
 
         <div class="form-group">
-            <label for="name-field">Name</label>
-            <input class="form-control" id="name-field" type="text" name="firstname"/>
+            <label for="firstname">Name</label>
+            <input class="form-control" th:field="*{firstname}"/>
+            <span th:errors="*{firstname}" class="error"></span>
 
         </div>
         <div class="form-group">
-            <label for="desc-field">Course</label>
-            <input class="form-control" id="desc-field" type="text" name="course"/>
+            <label th:for="pnc">Pnc</label>
+            <input class="form-control" th:field="*{pnc}" />
+            <span th:errors="*{pnc}" class="error"></span>
 
         </div>
 
+        <div class="form-group">
+            <label th:for="type">Type</label>
+            <select th:field="*{type}">
+            <option th:each="studentType : ${studentTypes}"
+                    th:text="${studentType.firstname}"
+                    th:value="${studentType}"></option>
+
+            </select>
+        </div>
+        <div class="form-group">
+        <label th:for="Course">Course</label>
+        <select name="courseid">
+            <option th:each="course : ${courses}"
+                    th:text="${course.name}"
+                    th:value="${course.id}"></option>
+        </select>
+        </div>
          
         <input type="submit" value="Add Student" />
     </form>

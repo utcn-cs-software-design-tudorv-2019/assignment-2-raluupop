@@ -11,11 +11,15 @@
 
     <tr>
         <th>Name</th>
+        <th>Pnc</th>
+        <th>Type</th>
         <th>Course</th>
     </tr>
     <tr th:each="student : ${students}">
         <td th:text="${student.firstname}"></td>
-        <td th:text="${student.course}"></td>
+        <td th:text="${student.pnc}"></td>
+        <td th:text="${student.type.firstname}"></td>
+        <td th:text= "${student.course.name}"></td>
     </tr>
 
 </table>
